@@ -1,4 +1,1 @@
-mjs-reddit-viewer
-=================
-
-A simple reddit client built with MontageJS
+This is a simple reddit frontend built with the MontageJS framework to demonstrate the use of repetitions. The client displays a navigation sidebar and a list of stories from the selected subreddit. It operates entirely on the client side, using JSONP and the reddit APIs. You can see a working version of the application here: http://montagejs.github.io/mfiddle/preview/#!/7766077

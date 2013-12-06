@@ -1,0 +1,106 @@
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="reddit.css" />
+      <script type="text/montage-serialization">
+      {
+          "owner": {
+              "properties": {
+                  "element": {"#": "reddit"}
+              },
+              "bindings": {
+                  "selectedSub": {"<-": "@rep.selection.0.data.url"}
+              }
+          },
+          "rep": {
+              "prototype": "montage/ui/repetition.reel",
+              "properties": {
+                  "element": {"#": "items"},
+                  "isSelectionEnabled": true
+              },
+              "bindings": {
+                  "content": {"<-": "@owner.subs.sorted{-data.subscribers}"}
+              }
+          },
+          "item": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "item"}
+              },
+              "bindings": {
+                  "value": {"<-": "@rep.objectAtCurrentIteration.data.display_name"}
+              }
+          },
+          "currentsub": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": {"#": "currentsub"}
+              },
+              "bindings": {
+                  "value": {"<-": "@rep.selection.0.data.display_name ?? 'Please Select a Sub'"}
+              }
+          },
+          "stories": {
+              "prototype": "montage/ui/repetition.reel",
+              "properties": {
+                  "element": { "#": "stories" }
+              },
+              "bindings": {
+                  "content": { "<-": "@owner.stories" }
+              }
+          },
+          "title": {
+              "prototype": "matte/ui/anchor.reel",
+              "properties": {
+                  "element": { "#": "title" }
+              },
+              "bindings": {
+                  "textContent": { "<-": "@stories.objectAtCurrentIteration.data.title" },
+                  "href": { "<-": "@stories.objectAtCurrentIteration.data.url" }
+              }
+          },
+          "author": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": { "#": "author" }
+              },
+              "bindings": {
+                  "value": { "<-": "@stories.objectAtCurrentIteration.data.author" }
+              }
+          },
+          "score": {
+              "prototype": "montage/ui/text.reel",
+              "properties": {
+                  "element": { "#": "score" }
+              },
+              "bindings": {
+                  "value": { "<-": "@stories.objectAtCurrentIteration.data.score" }
+              }
+          }
+      }
+      </script>
+    </head>
+    <body>
+        <div data-montage-id="reddit">
+            <h1 data-montage-id="currentsub"></h1>
+            
+            <div class="navigation">
+                <div class="header">Navigation</div>
+                <ul data-montage-id="items">
+                    <li data-montage-id="item"></li>
+                </ul>
+            </div>
+            
+            <table data-montage-id="stories">
+                <tbody><tr>
+                    <td>
+                        <p class="score" data-montage-id="score"></p>
+                    </td>
+                    <td>
+                        <p class="title"><a data-montage-id="title"></a></p>
+                        <p class="author">Posted by <span data-montage-id="author"></span></p>
+                    </td>
+                </tr></tbody>
+            </table>
+        </div>
+    </body>
+</html>

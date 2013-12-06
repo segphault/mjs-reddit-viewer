@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "matte": "~0.1.4",
+    "montage": "~0.13.7"
+  }
+}
